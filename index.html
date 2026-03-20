@@ -93,6 +93,63 @@
                 padding: 0;
             }
         }
+        .compare-container {
+            position: relative;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .compare-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .before-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            z-index: 3;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 4px;
+            height: 2000px; /* Large enough to exceed image height inside hidden overflow */
+            background: white;
+            cursor: ew-resize;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 4px;
+            height: 2000px;
+            background: white;
+            cursor: ew-resize;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            border: none;
+        }
     </style>
 </head>
 
@@ -107,43 +164,61 @@
         <div class="scene-container">
             <h2>Scene 1: Daytime at Monserrate, Bogotá</h2>
             <p>High above the capital, the geese explore the Monserrate overlook under the bright Colombian sun. One of them is already feeling the heat and slowly turning red from sunburn!</p>
-            <img src="images/geese_monserrate.png"
-                alt="Geese at Monserrate getting sunburnt">
+            <div class="compare-container">
+                <img src="images/geese_monserrate.png" class="after-img" alt="Geese at Monserrate getting sunburnt (Cartoon)">
+                <img src="images_cropped/before_1.jpg" class="before-img" alt="Geese at Monserrate (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
         <div class="scene-container">
             <h2>Scene 2: Winery with a New Friend in Villa de Leyva</h2>
             <p>The duo finds tranquility among the grapevines and white-washed colonial architecture of a winery in Villa de Leyva. They are joined by a lovely and friendly labrador.</p>
-            <img src="images/geese_villa.png"
-                alt="Geese in Villa de Leyva with a Labrador">
+            <div class="compare-container">
+                <img src="images/geese_villa.png" class="after-img" alt="Geese in Villa de Leyva with a Labrador (Cartoon)">
+                <img src="images_cropped/before_2.jpg" class="before-img" alt="Geese in Villa de Leyva (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
         <div class="scene-container">
             <h2>Scene 3: Arrival in Cartagena</h2>
             <p>The journey continues in the colorful, historic streets of Cartagena's Old City.</p>
-            <img src="images/geese_cartagena_1771890531965.png"
-                alt="Geese in Cartagena">
+            <div class="compare-container">
+                <img src="images/geese_cartagena_1771890531965.png" class="after-img" alt="Geese in Cartagena (Cartoon)">
+                <img src="images_cropped/before_3.jpg" class="before-img" alt="Geese in Cartagena (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
         <div class="scene-container">
             <h2>Scene 4: Friends at Aviario Nacional</h2>
             <p>In the lush Aviario Nacional, the geese make new friends among bright pink flamingos and colorful parrots. One of them even tries to master the flamingo's one-legged stance!</p>
-            <img src="images/geese_birds_v13_final_1771930947845.png"
-                alt="Geese at Aviario Nacional">
+            <div class="compare-container">
+                <img src="images/geese_birds_v13_final_1771930947845.png" class="after-img" alt="Geese at Aviario Nacional (Cartoon)">
+                <img src="images_cropped/before_4.jpg" class="before-img" alt="Geese at Aviario Nacional (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
         <div class="scene-container">
             <h2>Scene 5: Relaxing at Casa en el Agua</h2>
             <p>The geese head to the San Bernardo Archipelago to visit the famous floating hostel, "Casa en el Agua", for some well-deserved relaxation.</p>
-            <img src="images/geese_casa_en_el_agua_1771890552083.png"
-                alt="Geese at Casa en el Agua">
+            <div class="compare-container">
+                <img src="images/geese_casa_en_el_agua_1771890552083.png" class="after-img" alt="Geese at Casa en el Agua (Cartoon)">
+                <img src="images_cropped/before_5.jpg" class="before-img" alt="Geese at Casa en el Agua (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
         <div class="scene-container">
             <h2>Scene 6: Rooftop Hot Tub in Medellín</h2>
             <p>The travelers arrive in the City of Eternal Spring. To cap off the night, they relax in a luxurious rooftop hot tub, taking in the glowing city lights of Medellín below.</p>
-            <img src="images/geese_medellin.png"
-                alt="Geese in a hot tub in Medellín">
+            <div class="compare-container">
+                <img src="images/geese_medellin.png" class="after-img" alt="Geese in a hot tub in Medellín (Cartoon)">
+                <img src="images_cropped/before_6.jpg" class="before-img" alt="Geese in a hot tub in Medellín (Original)" style="clip-path: polygon(0 0, 25% 0, 25% 100%, 0 100%);">
+                <input type="range" min="0" max="100" value="25" class="slider" aria-label="Image comparison slider" oninput="this.previousElementSibling.style.clipPath = `polygon(0 0, ${this.value}% 0, ${this.value}% 100%, 0 100%)`">
+            </div>
         </div>
 
     </div>
